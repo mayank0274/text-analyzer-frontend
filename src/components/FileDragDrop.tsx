@@ -23,7 +23,6 @@ const FileDragDrop = ({ handleFile }: Props) => {
     onDrop,
     accept: {
       "text/html": [".html", ".txt"],
-      "application/pdf": [".pdf"],
       "application/doc": [".doc", ".docx"],
     },
   });
@@ -47,7 +46,7 @@ const FileDragDrop = ({ handleFile }: Props) => {
         Drop your file here or click here to select file
       </Text>
       <Text textAlign={{ base: "center", sm: "center", md: "justify" }}>
-        Supported formats .pdf , .docx , .txt , .html etc.
+        Supported formats .docx , .txt , .html etc.
       </Text>
       {isDragActive && (
         <Box
