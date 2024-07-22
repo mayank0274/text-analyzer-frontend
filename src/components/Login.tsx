@@ -119,6 +119,14 @@ const Login: React.FC<Props> = () => {
     },
   });
 
+  // guest user login
+  async function gusetUserLogin() {
+    await loginUser({
+      email: "guest@mail.com",
+      password: "mayank@123",
+    });
+  }
+
   return (
     <Box
       width="100%"
@@ -191,6 +199,17 @@ const Login: React.FC<Props> = () => {
             isLoading={isLoading}
           >
             Login
+          </Button>
+
+          <Button
+            colorScheme="teal"
+            my={"20px"}
+            width={"100%"}
+            type="submit"
+            isLoading={isLoading}
+            onClick={gusetUserLogin}
+          >
+            Login with guest credentials
           </Button>
 
           <Text textAlign={"center"}>
