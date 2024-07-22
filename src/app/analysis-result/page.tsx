@@ -73,7 +73,7 @@ const AnalysisResult = (props: Props) => {
             </Box>
           </Box>
           <Text fontSize={"16.5px"} fontWeight={"semibold"}>
-            {summary}
+            {summary === "" ? "Text can't be summarize" : summary}
           </Text>
         </Box>
 
@@ -81,21 +81,23 @@ const AnalysisResult = (props: Props) => {
         <Box display={"flex"} flexDir={"column"} gap={"7px"}>
           <Text fontSize={"25px"}>Sentiment analysis</Text>
           <Text fontSize={"16.5px"} fontWeight={"semibold"}>
-            {sentimentAnalysis}
+            {sentimentAnalysis === ""
+              ? "Sentiment analysis can't be generated from given text"
+              : sentimentAnalysis}
           </Text>
         </Box>
 
         {/* {topics} */}
         <Box display={"flex"} flexDir={"column"} gap={"4px"}>
           <Text fontSize={"25px"}>Topics</Text>
-          {topics != "" && topics.split(",").length != 0 ? (
+          {topics != "" && topics?.split(",").length > 0 ? (
             <Box
               display={"flex"}
               flexDir={"row"}
               gap={"10px"}
               flexWrap={"wrap"}
             >
-              {analysis.topics.split(",").map((elem) => {
+              {topics?.split(",").map((elem) => {
                 return (
                   <Tag maxWidth="max-content" key={elem}>
                     {elem}
@@ -111,14 +113,14 @@ const AnalysisResult = (props: Props) => {
         {/* {keyword} */}
         <Box display={"flex"} flexDir={"column"} gap={"4px"}>
           <Text fontSize={"25px"}>Keywords</Text>
-          {keywords != "" && keywords.split(",").length != 0 ? (
+          {keywords != "" && keywords?.split(",").length > 0 ? (
             <Box
               display={"flex"}
               flexDir={"row"}
               gap={"10px"}
               flexWrap={"wrap"}
             >
-              {analysis.keywords.split(",").map((elem) => {
+              {keywords?.split(",").map((elem) => {
                 return (
                   <Tag maxWidth="max-content" key={elem}>
                     {elem}
