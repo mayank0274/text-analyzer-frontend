@@ -196,17 +196,17 @@ const Login: React.FC<Props> = () => {
             my={"20px"}
             width={"100%"}
             type="submit"
-            isLoading={isLoading}
+            isLoading={isLoading && values.email != ""}
           >
             Login
           </Button>
 
           <Button
             colorScheme="teal"
-            my={"20px"}
+            my={"8px"}
             width={"100%"}
             type="submit"
-            isLoading={isLoading}
+            isLoading={isLoading && values.email === ""}
             onClick={gusetUserLogin}
           >
             Login with guest credentials
